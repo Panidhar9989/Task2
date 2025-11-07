@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  <style>
+    body { margin: 0; font-family: Arial; }
+
+    nav {
+      background: #333;
+      color: white;
+      padding: 10px;
+    }
+
+    .menu-btn {
+      cursor: pointer;
+      font-size: 22px;
+      display: block;
+    }
+
+    /* Hidden links for mobile */
+    .links {
+      display: none;
+      flex-direction: column;
+    }
+
+    .links a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      border-top: 1px solid #444;
+      text-align: center;
+    }
+
+    /* Show links horizontally on desktop */
+    @media (min-width: 600px) {
+      .menu-btn { display: none; }
+      .links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .links a {
+        border: none;
+        margin: 0 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <span class="menu-btn" onclick="toggleMenu()">☰ Menu</span>
+    <div class="links" id="navLinks">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      if (nav.style.display === 'flex' || nav.style.display === 'block') {
+        nav.style.display = 'none';
+      } else {
+        nav.style.display = 'flex';
+      }
+    }
+  </script>
+</body>
+</html>
